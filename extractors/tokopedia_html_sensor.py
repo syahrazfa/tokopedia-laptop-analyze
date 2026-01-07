@@ -5,10 +5,11 @@ url = "https://www.tokopedia.com/search?st=product&q=laptop"
 
 r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
 
+#CONN PRIVACY
 conn = psycopg2.connect(
-    dbname="tokopedia_dw",
+    dbname="-",
     user="postgres",
-    password="Jun218911",
+    password="-",
     host="localhost",
     port=5432
 )
