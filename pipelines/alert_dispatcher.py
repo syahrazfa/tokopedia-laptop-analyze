@@ -1,3 +1,11 @@
+# Role: Capital Activation Layer
+# Function:
+# Dispatches market signals into execution channels.
+
+# Why it exists:
+# Signals without action are worthless.
+# This converts intelligence into profit pathways.
+
 import os
 from dotenv import load_dotenv
 import psycopg2
