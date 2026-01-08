@@ -1,3 +1,11 @@
+# Role: Market Intelligence Generator
+# Function:
+# Materializes the latest clean market state.
+
+# Why it exists:
+# You don’t trade on history.
+# You trade on current truth.
+
 import os
 from dotenv import load_dotenv
 import psycopg2
