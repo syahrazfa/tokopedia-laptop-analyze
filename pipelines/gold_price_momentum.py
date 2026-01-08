@@ -1,3 +1,11 @@
+# Role: Momentum Engine
+# Function:
+# Calculates velocity, delta, and reversal signals.
+
+# Why it exists:
+# Price direction determines capital flow.
+# This file creates your trend radar.
+
 import os
 from dotenv import load_dotenv
 import psycopg2
