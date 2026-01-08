@@ -1,3 +1,11 @@
+# Role: Fallback Intelligence Sensor
+# Function:
+# Secondary extraction path for pages not available via GraphQL.
+
+# Why it exists:
+# Markets mutate. APIs die. HTML never disappears.
+# This is your anti-fragility sensor.
+
 import requests
 import psycopg2
 import os
