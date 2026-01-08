@@ -1,3 +1,12 @@
+# Role: Primary Market Sensor
+# Function:
+# Ingests Tokopedia GraphQL marketplace state and converts it into raw Bronze market truth.
+
+# Why it exists:
+# Markets cannot be traded without live truth.
+# This is your price oracle.
+# Everything downstream is derivative of this sensor.
+
 import requests
 import psycopg2
 import json
