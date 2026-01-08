@@ -1,36 +1,66 @@
-## Endpoint
+# Tokopedia Laptop Market Intelligence Engine
 
-POST https://gql.tokopedia.com/graphql/SearchProductV5Query
+Production-grade market intelligence system for tracking, analyzing, and alerting Tokopedia laptop price dynamics.
 
-## Purpose
+This system ingests live Tokopedia product data, normalizes it into a multi-layer analytical warehouse, computes momentum, detects price crashes, and dispatches alerts.
 
-Provides Tokopedia’s canonical public product feed for search result pages.
-Returns full product, seller, stock, and price information used by Tokopedia frontend.
+---
 
-## Request
+## Architecture
 
-Method: POST  
-Content-Type: application/json  
-Required Headers:
-- User-Agent
-- Content-Type
+Layered data system:
 
-## Canonical Truth Fields
+bronze → silver → gold → dispatch
 
-| Canonical Meaning | JSON Path |
-|------------------|----------|
-| product_id | data.searchProductV5.products[].id |
-| product_name | data.searchProductV5.products[].name |
-| product_url | data.searchProductV5.products[].url |
-| seller_id | data.searchProductV5.products[].shop.id |
-| seller_name | data.searchProductV5.products[].shop.name |
-| seller_city | data.searchProductV5.products[].shop.city |
-| stock | data.searchProductV5.products[].stock |
-| image | data.searchProductV5.products[].mediaURL.image300 |
-| price | data.searchProductV5.products[].price |
+| Layer | Purpose |
+|------|---------|
+| bronze | Raw market ingestion |
+| silver | Clean normalized product prices |
+| gold | Momentum, alerts, and analytics |
+| dispatch | Outbound alert delivery |
 
-## Notes
+---
 
-- Endpoint returns GraphQL JSON.
-- This feed is the primary source of public Tokopedia product truth.
-- All product price history will be derived from this endpoint.
+## Core Pipelines
+
+| File | Role |
+|-----|-----|
+| tokopedia_json_sensor.py | Market ingestion |
+| bronze_to_silver.py | Normalization |
+| silver_to_gold.py | Aggregation |
+| gold_price_momentum.py | Price delta engine |
+| gold_price_alerts.py | Crash detection |
+| alert_dispatcher.py | Alert delivery |
+
+---
+
+## Requirements
+
+- Python 3.11+
+- PostgreSQL 14+
+- psycopg2
+- requests
+- python-dotenv
+
+---
+
+## Environment
+
+Create `.env`:
+
+---
+
+# LICENCE
+
+Apache Licence 2.0
+
+---
+
+# 🌟 About Me
+Hi, im Raz,
+
+I am building my career at the intersection of data engineering, financial logic, and operator decision systems.
+
+My work focuses on freezing real business reality into decision-grade data structures that support capital allocation, margin optimization, and risk visibility — not just dashboards and reports.
+
+This repository is part of a long-term effort to move from technical data roles into operator and investment-facing positions, where data is used to change outcomes, not simply describe them.
