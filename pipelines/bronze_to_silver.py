@@ -1,3 +1,11 @@
+# Role: Data Normalization Layer
+# Function:
+# Transforms raw ingest into normalized price time series.
+
+# Why it exists:
+# Markets are functions of time, not snapshots.
+# This creates the price history ledger.
+
 import os
 from dotenv import load_dotenv
 import psycopg2
