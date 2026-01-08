@@ -48,15 +48,40 @@ bronze → silver → gold → dispatch
 
 Create `.env`:
 
+DB_NAME=tokopedia_dw
+DB_USER=postgres
+DB_PASS=your_password
+DB_HOST=localhost
+DB_PORT=5432
+
+---
+
+## Initialize
+
+sql/schema.sql
+
+---
+
+## Pipelines
+
+1. python extractors/tokopedia_json_sensor.py
+2. python pipelines/bronze_to_silver.py
+3. python pipelines/silver_to_gold.py
+4. python pipelines/gold_price_momentum.py
+5. python pipelines/gold_price_alerts.py
+6. python pipelines/alert_dispatcher.py
+
 ---
 
 # LICENSE
 
-Apache License 2.0
+This project is licensed under the Apache License 2.0.
+
+You may use this commercially, but you may not weaponize its patents against the original author.
 
 ---
 
-# 🌟 About Me
+# About Me
 Hi, im Raz,
 
 I am building my career at the intersection of data engineering, financial logic, and operator decision systems.
