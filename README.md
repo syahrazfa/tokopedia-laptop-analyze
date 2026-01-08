@@ -50,9 +50,9 @@ Create `.env`:
 
 ---
 
-# LICENCE
+# LICENSE
 
-Apache Licence 2.0
+Apache License 2.0
 
 ---
 
