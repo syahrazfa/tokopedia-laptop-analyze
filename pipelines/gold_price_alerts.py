@@ -1,3 +1,11 @@
+# Role: Abnormality Detection Engine
+# Function:
+# Detects sharp drops and liquidation events.
+
+# Why it exists:
+# Arbitrage only exists during panic and mispricing.
+# This engine locates market fear.
+
 import os
 from dotenv import load_dotenv
 import psycopg2
